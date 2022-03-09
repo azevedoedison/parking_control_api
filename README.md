@@ -45,7 +45,8 @@ Atentar-se ao arquivo de configuração application.properties do projeto que co
 
 ## Meta
 
-Edison de Azevedo Filho – [@azevedoedison](https://twitter.com/azevedoedison) – [Linkedin:](https://www.linkedin.com/in/edison-de-azevedo/)
+Edison de Azevedo Filho – [@azevedoedison](https://twitter.com/azevedoedison) – 
+[https://www.linkedin.com/in/edison-de-azevedo/](https://www.linkedin.com/in/edison-de-azevedo/)
 [https://github.com/azevedoedison/parking_control_api](https://github.com/azevedoedison/)
 
 
