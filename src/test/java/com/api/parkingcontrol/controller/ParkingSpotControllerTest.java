@@ -26,6 +26,7 @@ import org.springframework.http.ResponseEntity;
 import com.api.parkingcontrol.dto.ParkingSpotDTO;
 import com.api.parkingcontrol.model.ParkingSpotModel;
 import com.api.parkingcontrol.service.ParkingSpotService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 public class ParkingSpotControllerTest {
@@ -81,14 +82,26 @@ public class ParkingSpotControllerTest {
 	
 	@Test
 	void whenFindByIDThenReturnSuccess() {
+		ObjectMapper mapper = new ObjectMapper();
+		
+		
 		Mockito.when(service.findById(Mockito.any(UUID.class))).thenReturn(Optional.of(parkingSpot));
-		ResponseEntity<Object> response = controller.findById(ID);		
+		ResponseEntity<Object> response = controller.findById(ID);	
+		ParkingSpotModel responseParkingSpot = (ParkingSpotModel) response.getBody();
 		//Assegure pra mim que eu recebei um HTTPStatusCode OK
 		Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
 		//Assegure pra mim que o retorno não seja nulo.
 		Assertions.assertNotNull(response);
 		//Assegure pra mim que a resposta do endpoint vai ter a classe do tipo ResponseEntity
-		Assertions.assertEquals(ResponseEntity.class, response.getClass());		
+		Assertions.assertEquals(ResponseEntity.class, response.getClass());	
+		
+		Assertions.assertEquals(COLORCAR, responseParkingSpot.getColorCar());
+		Assertions.assertEquals(BRANDCAR, responseParkingSpot.getBrandCar());
+		Assertions.assertEquals(LICENSEPLATECAR, responseParkingSpot.getLicensePlateCar());
+		Assertions.assertEquals(MODELCAR, responseParkingSpot.getModelCar());
+		Assertions.assertEquals(PARKINGSPOTNUMBER, responseParkingSpot.getParkingSpotNumber());
+		Assertions.assertEquals(REGISTRATIONDATE, responseParkingSpot.getRegistrationDate());
+		
 	}
 	
 	@Test

@@ -152,10 +152,4 @@ public class ParkingSpotModel implements Serializable{
 		this.block = block;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	
-	
 }
