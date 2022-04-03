@@ -23,8 +23,32 @@ public class ParkingSpotDTO {
     private String apartment;
     @NotBlank
     private String block;
+    
+    
 
-    public String getParkingSpotNumber() {
+    public ParkingSpotDTO(@NotBlank String parkingSpotNumber, @NotBlank @Size(max = 7) String licensePlateCar,
+			@NotBlank String brandCar, @NotBlank String modelCar, @NotBlank String colorCar,
+			@NotBlank String responsibleName, @NotBlank String apartment, @NotBlank String block) {
+		super();
+		this.parkingSpotNumber = parkingSpotNumber;
+		this.licensePlateCar = licensePlateCar;
+		this.brandCar = brandCar;
+		this.modelCar = modelCar;
+		this.colorCar = colorCar;
+		this.responsibleName = responsibleName;
+		this.apartment = apartment;
+		this.block = block;
+	}
+    
+    
+
+	public ParkingSpotDTO() {
+		super();		
+	}
+
+
+
+	public String getParkingSpotNumber() {
         return parkingSpotNumber;
     }
 
